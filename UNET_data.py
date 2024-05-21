@@ -50,6 +50,7 @@ X_test /= 255.0
 y_train /= 255.0
 
 
+
 np.save('train_image_array.npy',X_train)
 np.save('train_mask_array.npy',y_train)
 np.save('test_image_array.npy',X_test)
