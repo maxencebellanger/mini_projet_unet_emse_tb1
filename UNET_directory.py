@@ -15,8 +15,8 @@ import os
 import numpy as np
 import shutil as sh
 from UNET_utils import *
-train_root = 'train_images/'
-test_root = 'test_images/'
+train_root = '../training/train_images/'
+test_root = '../training/test_images/'
 
 train_img_dir = []
 test_img_dir = []

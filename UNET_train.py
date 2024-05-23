@@ -23,8 +23,10 @@ import numpy as np
 
 model = UNet((512,512,1))
 
-X_train = np.load('train_image_array.npy')
-y_train = np.load('train_mask_array.npy')
+X_train = np.load('../model_files/train_image_array.npy')
+y_train = np.load('../model_files/train_mask_array.npy')
+
+print(X_train)
 
 
 #X_val = X_train[-75:]
@@ -48,4 +50,4 @@ history = model.fit(X_train,y_train ,
                     epochs = EPOCHS , callbacks = callbacks ,
                     verbose = 1)#, validation_data = VAL_DATA)
 
-model.save("Unet_XRAY.h5.keras")
+model.save("../model_files/Unet.keras")

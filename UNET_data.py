@@ -15,8 +15,8 @@ import os
 HEIGHT = 512
 WIDTH = 512
 
-train_root = 'train_images/'
-test_root = 'test_images/'
+train_root  = '../training/train_images/'
+test_root   = '../training/test_images/'
 
 images = os.listdir(train_root+"images")
 tests = os.listdir(test_root)
@@ -51,6 +51,6 @@ y_train /= 255.0
 
 
 
-np.save('train_image_array.npy',X_train)
-np.save('train_mask_array.npy',y_train)
-np.save('test_image_array.npy',X_test)
+np.save('../model_files/train_image_array.npy',X_train)
+np.save('../model_files/train_mask_array.npy',y_train)
+np.save('../model_files/test_image_array.npy',X_test)
