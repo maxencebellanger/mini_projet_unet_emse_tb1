@@ -26,8 +26,6 @@ model = UNet((512,512,1))
 X_train = np.load('../model_files/train_image_array.npy')
 y_train = np.load('../model_files/train_mask_array.npy')
 
-print(X_train)
-
 
 #X_val = X_train[-75:]
 #y_val = y_train[-75:]
