@@ -1,23 +1,25 @@
 import numpy as np
+import skimage as sk
+import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 
-#Un script qui présente les résultats du modèles :
-#Affiche quelques images avec les prédictions et les vraies valeurs
-#Affiche la mtriice de confusion
-#Fait une analyse de la performance du modèle : distrubution de l'aire, des périmètres, de chaque forme prédite sur les masks
+def display_images(images, predictions, masks):
+    fig, axes = plt.subplots(3, len(images), figsize=(12, 6))        
 
+    fig.suptitle('Images, True Masks, Predicted Masks, and Enhanced Images')
 
-import matplotlib.pyplot as plt
-
-# Function to display images with predictions and true values
-def display_images(images, predictions, true_values):
-    fig, axes = plt.subplots(2, 5, figsize=(12, 6))
-    axes = axes.flatten()
 
     for i in range(len(images)):
-        axes[i].imshow(images[i])
-        axes[i].set_title(f"Prediction: {predictions[i]}, True Value: {true_values[i]}")
-        axes[i].axis('off')
+        axes[0][i].imshow(images[i], cmap='gray')
+        axes[0][i].axis('off')
+
+    for i in range(len(images)):
+        axes[1][i].imshow(masks[i], cmap='gray')
+        axes[1][i].axis('off')
+
+    for i in range(len(images)):
+        axes[2][i].imshow(predictions[i], cmap='gray')
+        axes[2][i].axis('off')
 
     plt.tight_layout()
     plt.show()
@@ -71,11 +73,11 @@ predictions = np.load('../model_files/predictions_array.npy')
 masks = np.load('../model_files/test_masks_array.npy') 
 
 # Display images with predictions and true values
-#display_images(images, predictions, masks)
+display_images(images, predictions, masks)
 
 # Display confusion matrix
 #display_confusion_matrix(masks, predictions)
 
 # Analyze model performance
-analyze_performance(predictions, masks)
+#analyze_performance(predictions, masks)
 

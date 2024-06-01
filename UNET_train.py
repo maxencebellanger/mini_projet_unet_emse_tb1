@@ -8,14 +8,9 @@ All rights reserved.
 from UNET_lowered import *
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers 
-from tensorflow.keras.layers import Input , Conv2D , MaxPooling2D , Dropout , concatenate , UpSampling2D
-from tensorflow.keras import models
-from tensorflow.keras import losses
-from tensorflow.keras import optimizers
 import numpy as np
 
-model = UNet((512,512,1))
+model = UNet((512,512))
 
 images_train = np.load('../model_files/train_images_array.npy')
 masks_train = np.load('../model_files/train_masks_array.npy')
@@ -26,8 +21,8 @@ BATCH_SIZE = 10
 callbacks=[keras.callbacks.ModelCheckpoint('Unet_XRAY_best.h5.keras',save_best_only=True)]
 
 
-model.compile(optimizer = optimizers.Adam(1e-4) , 
-              loss = losses.BinaryCrossentropy(from_logits = False),
+model.compile(optimizer = keras.optimizers.Adam(1e-4) , 
+              loss = keras.losses.BinaryCrossentropy(from_logits = False),
               metrics = ['accuracy'])
 
 history = model.fit(images_train, masks_train, 

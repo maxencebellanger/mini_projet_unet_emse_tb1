@@ -6,14 +6,9 @@ UNET LOwered Model :
     
 """
 
-import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers 
+from keras import layers 
 from tensorflow.keras.layers import Input , Conv2D , MaxPooling2D , Dropout , concatenate , UpSampling2D
-from tensorflow.keras import models
-from tensorflow.keras import losses
-from tensorflow.keras import optimizers
-import numpy as np
 
 
 def UNet(input_shape):
@@ -62,12 +57,6 @@ def UNet(input_shape):
   conv9 = Conv2D(2, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
 
   outputs = layers.Conv2D(1, 1, activation = 'relu')(conv9)
-
-  #RGB
-  #conv9 = Conv2D(3, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
-  #
-  #outputs = conv9 #layers.Conv2D(3, 1, activation = 'sigmoid')(conv9)
-
 
   model = keras.Model(inputs = inputs , outputs = outputs,name = 'UNet')
 

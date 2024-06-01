@@ -18,7 +18,6 @@ You have to add a directory named *model_files* to store the model-related files
 At the end your folder should look like this: 
 ```
 ├───mini_projet_unet_emse_tb1
-│   
 ├───model_files
 ├───test
 │   ├───predicted_masks
