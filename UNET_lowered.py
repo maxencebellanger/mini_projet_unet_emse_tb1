@@ -61,7 +61,13 @@ def UNet(input_shape):
   conv9 = Conv2D(16, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
   conv9 = Conv2D(2, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
 
-  outputs = layers.Conv2D(1, 1, activation = 'sigmoid')(conv9)
+  outputs = layers.Conv2D(1, 1, activation = 'relu')(conv9)
+
+  #RGB
+  #conv9 = Conv2D(3, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
+  #
+  #outputs = conv9 #layers.Conv2D(3, 1, activation = 'sigmoid')(conv9)
+
 
   model = keras.Model(inputs = inputs , outputs = outputs,name = 'UNet')
 

@@ -22,6 +22,7 @@ from tensorflow.keras import optimizers
 import numpy as np
 
 model = UNet((512,512,1))
+#model = UNet((512,512,3)) RGB
 
 X_train = np.load('../model_files/train_image_array.npy')
 y_train = np.load('../model_files/train_mask_array.npy')
@@ -33,7 +34,7 @@ y_train = np.load('../model_files/train_mask_array.npy')
 #X_train = X_train[:-75]
 #y_train = y_train[:-75]
 
-EPOCHS = 10 
+EPOCHS = 15
 #VAL_DATA = (X_val,y_val)
 BATCH_SIZE = 10
 callbacks=[keras.callbacks.ModelCheckpoint('Unet_XRAY_best.h5.keras',save_best_only=True)]

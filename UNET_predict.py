@@ -8,7 +8,8 @@ def predict_masks():
     test_images = np.load('../model_files/test_image_array.npy')
     predicted_masks = model.predict(test_images)
     for i in range(len(test_images)):
-        cv2.imwrite("../training/predicted_masks/"+str(i)+".png", predicted_masks[i])
+        predicted_masks[i] = predicted_masks[i] > 0.1
+        cv2.imwrite("../training/predicted_masks/"+str(i)+".png", predicted_masks[i]*255)
 
 
 predict_masks()

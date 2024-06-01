@@ -32,17 +32,17 @@ for i in range(nb_train_samples):
   path = images[i]
   img = cv2.imread(train_root+"images/"+path)
   img = cv2.resize(img, (HEIGHT,WIDTH))
-  X_train[i] = img[:,:,0].reshape(512,512,1)
+  X_train[i] = img[:,:,1].reshape(512,512,1)
   img = cv2.imread(train_root+'masks/'+path)
   img = cv2.resize(img, (HEIGHT,WIDTH))
-  y_train[i] = img[:,:,0].reshape(512,512,1)
+  y_train[i] = img[:,:,1].reshape(512,512,1)
 
 
 for i in range(nb_test_samples):
   path = tests[i]
   img = cv2.imread(test_root+path)
   img = cv2.resize(img, (HEIGHT,WIDTH))
-  X_test[i] = img[:,:,0].reshape(512,512,1)
+  X_test[i] = img[:,:,1].reshape(512,512,1)
   
   
 X_train /= 255.0
