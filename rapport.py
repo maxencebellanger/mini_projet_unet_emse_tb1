@@ -65,17 +65,16 @@ def analyze_performance(predictions, masks):
     plt.show()
 
 
-
 # Load the images, predictions, and true values
-images = load_images()  # Replace with your function to load images
-predictions = load_predictions()  # Replace with your function to load predictions
-true_values = load_true_values()  # Replace with your function to load true values
+images = np.load('../model_files/test_images_array.npy') 
+predictions = np.load('../model_files/predictions_array.npy') 
+masks = np.load('../model_files/test_masks_array.npy') 
 
 # Display images with predictions and true values
-display_images(images, predictions, true_values)
+#display_images(images, predictions, masks)
 
 # Display confusion matrix
-display_confusion_matrix(true_values, predictions)
+#display_confusion_matrix(masks, predictions)
 
 # Analyze model performance
 analyze_performance(predictions, masks)
