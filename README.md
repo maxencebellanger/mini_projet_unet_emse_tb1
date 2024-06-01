@@ -12,8 +12,27 @@ Make a directory named : *training* which contains directories named *images* an
 Make a directory named: *test* which contains directories named *predicted_masks* and *test_images*. <br>
 *test_images* will contain two folders named *images* and *masks* like the *training* folder. 
 
-### 1.3 - Images
-Your images should have a size of 512x512 pixels and be RGB.
+### 1.3 - Folder organization 
+You have to add a directory named *model_files* to store the model-related files: <br>
+
+At the end your folder should look like this: 
+```
+├───mini_projet_unet_emse_tb1
+│   
+├───model_files
+├───test
+│   ├───predicted_masks
+│   └───test_images
+│       ├───images
+│       └───masks
+└───training
+    ├───images
+    └───masks
+```
+
+### 1.4 - Data
+Your images should have a size of 512x512 pixels and be RGB. <br>
+Your masks should be binarized images.
 
 ## 2 - Running the Unet
 ### 2.1 - Data initialization
