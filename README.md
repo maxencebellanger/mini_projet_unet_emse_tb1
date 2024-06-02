@@ -59,4 +59,4 @@ Run *UNET_predict.py* to predict the masks of your images. <br>
 The results appears in *test/predicted_masks*. If your images are all black or all white you should modify the threshold in *UNET_predict.py*.
 
 ### 2.3 - Evaluate performance
-The file *rapport.py* contains functions to measure performance of the model. 
+The file *UNET_metrics.py* contains functions to measure performance of the model. 
