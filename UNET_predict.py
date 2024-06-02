@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from UNET_data import save_test_data
-import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import cv2
