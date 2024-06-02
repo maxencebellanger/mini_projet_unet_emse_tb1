@@ -9,7 +9,7 @@ This project is an assingment in a course at EMSE: Introduction to image process
 
 **Use python 3.8 for tensorflow compatibility** <br>
 
-Install the packages needed with pip : <br>
+Install the packages needed with pip: <br>
 
 ```
 pip install -r requirements.txt
