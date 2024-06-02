@@ -1,17 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-UNET LOwered Model :
-    
-    This customized UNet Model has been generated lowering the filters to their 25% .
-    
-"""
-
 from tensorflow import keras
 from keras import layers 
 from tensorflow.keras.layers import Input , Conv2D , MaxPooling2D , Dropout , concatenate , UpSampling2D
 
 
-def UNet(input_shape):
+def UNet_lowered(input_shape):
   keras.backend.clear_session()
   inputs = Input(input_shape)
   conv1 = Conv2D(16, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(inputs)

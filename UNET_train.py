@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-Created by @sagnik1511 (https://github.com/sagnik1511). 
-All rights reserved.
-
-"""
-
 from UNET_lowered import *
+from UNET_data import save_training_data
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 
 model = UNet((512,512))
+
+save_training_data()
 
 images_train = np.load('../model_files/train_images_array.npy')
 masks_train = np.load('../model_files/train_masks_array.npy')

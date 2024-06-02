@@ -34,15 +34,12 @@ Your images should have a size of 512x512 pixels and be RGB. <br>
 Your masks should be binarized images.
 
 ## 2 - Running the Unet
-### 2.1 - Data initialization
-Run *UNET_data.py* to create files that will contain all the training and test data.
-
-### 2.2 - Training
+### 2.1 - Training
 Run *UNET_train.py* to train the model.
 
-### 2.3 - Prediction
+### 2.2 - Prediction
 Run *UNET_predict.py* to predict the masks of your images. <br>
 The results appears in *test/predicted_masks*. If your images are all black or all white you should modify the threshold in *UNET_predict.py*.
 
-### 2.4 - Performance 
-The file *rapport.py* contains functions to test the performance of the model. 
+### 2.3 - Evaluate performance
+The file *rapport.py* contains functions to measure performance of the model. 

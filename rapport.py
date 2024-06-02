@@ -18,7 +18,10 @@ def display_images(images, predictions, masks):
         axes[1][i].axis('off')
 
     for i in range(len(images)):
-        axes[2][i].imshow(predictions[i], cmap='gray')
+        img = predictions[i].reshape(512, 512)
+        img = sk.morphology.closing(img, sk.morphology.disk(2))
+        img = sk.morphology.opening(img, sk.morphology.disk(2))
+        axes[2][i].imshow(img, cmap='gray')
         axes[2][i].axis('off')
 
     plt.tight_layout()
