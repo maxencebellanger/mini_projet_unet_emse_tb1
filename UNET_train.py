@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 
-model = UNet((512,512))
+model = UNet_lowered((512,512, 1))
 
 save_training_data()
 

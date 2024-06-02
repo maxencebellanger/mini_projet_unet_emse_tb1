@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-from tensorflow import keras
-from keras import layers 
-from tensorflow.keras.layers import Input , Conv2D , MaxPooling2D , Dropout , concatenate , UpSampling2D
+from keras import backend, Model
+from keras.layers import Input, Conv2D, MaxPooling2D, Dropout, concatenate, UpSampling2D
 
 
 def UNet_lowered(input_shape):
-  keras.backend.clear_session()
+  backend.clear_session()
   inputs = Input(input_shape)
   conv1 = Conv2D(16, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(inputs)
   conv1 = Conv2D(16, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv1)
@@ -49,8 +48,8 @@ def UNet_lowered(input_shape):
   conv9 = Conv2D(16, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
   conv9 = Conv2D(2, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
 
-  outputs = layers.Conv2D(1, 1, activation = 'relu')(conv9)
+  outputs = Conv2D(1, 1, activation = 'relu')(conv9)
 
-  model = keras.Model(inputs = inputs , outputs = outputs,name = 'UNet')
+  model = Model(inputs = inputs , outputs = outputs,name = 'UNet')
 
   return model

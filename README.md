@@ -4,6 +4,8 @@ All thanks to sagnik1511, I used his project to start : https://github.com/sagni
 
 This project is an assingment in a course at EMSE: Introduction to image processing.
 
+**Use python 3.8 for tensorflow compatibility**
+
 ## 1 - Setup
 ### 1.1 - Training data
 Make a directory named : *training* which contains directories named *images* and *masks*. It will contain all the training data.
