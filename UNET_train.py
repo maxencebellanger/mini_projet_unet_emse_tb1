@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from UNET_lowered import *
+from UNET_model import *
 from UNET_data import save_training_data
 from tensorflow import keras
 import numpy as np

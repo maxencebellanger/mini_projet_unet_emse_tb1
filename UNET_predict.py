@@ -10,7 +10,7 @@ def predict_masks():
     test_images = np.load('../model_files/test_images_array.npy')
     predicted_masks = model.predict(test_images)
     for i in range(len(test_images)):
-        predicted_masks[i] = predicted_masks[i] > 0.45
+        predicted_masks[i] = predicted_masks[i] > 0.5
         cv2.imwrite("../test/predicted_masks/"+str(i)+".png", predicted_masks[i]*255)
         cv2.imwrite("../test/enhanced_predicted_masks/"+str(i)+".png", enhance_prediction(predicted_masks[i])*255)
 
@@ -20,7 +20,7 @@ def enhance_prediction(prediction):
     img = prediction.reshape(512, 512) > 0
     img = sk.morphology.binary_opening(img, sk.morphology.disk(5))
     img = sk.morphology.remove_small_objects(img, 10)
-    img = sk.morphology.binary_closing(img, sk.morphology.disk(5))
+    img = sk.morphology.binary_closing(img, sk.morphology.disk(2))
     return img
 
 
