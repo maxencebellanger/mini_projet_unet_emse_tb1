@@ -11,9 +11,9 @@ save_training_data()
 images_train = np.load('../model_files/train_images_array.npy')
 masks_train = np.load('../model_files/train_masks_array.npy')
 
-EPOCHS = 15
+EPOCHS = 5
 #VAL_DATA = (X_val,y_val)
-BATCH_SIZE = 10
+BATCH_SIZE = 20
 callbacks=[keras.callbacks.ModelCheckpoint('Unet_XRAY_best.h5.keras',save_best_only=True)]
 
 

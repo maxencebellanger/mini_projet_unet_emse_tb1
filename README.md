@@ -4,17 +4,29 @@ All thanks to sagnik1511, I used his project to start : https://github.com/sagni
 
 This project is an assingment in a course at EMSE: Introduction to image processing.
 
-**Use python 3.8 for tensorflow compatibility**
-
 ## 1 - Setup
-### 1.1 - Training data
+### 1.1 - Python and packages
+
+**Use python 3.8 for tensorflow compatibility** <br>
+
+Install the packages needed with pip : <br>
+
+```
+pip install -r requirements.txt
+```
+
+You should use a virtual environment to avoid conflict with your actual installation.
+
+```
+python -m venv <virtual environment location>
+```
+
+### 1.2 - Folder organization 
 Make a directory named : *training* which contains directories named *images* and *masks*. It will contain all the training data.
 
-### 1.2 - Test data
 Make a directory named: *test* which contains directories named *predicted_masks* and *test_images*. <br>
 *test_images* will contain two folders named *images* and *masks* like the *training* folder. 
 
-### 1.3 - Folder organization 
 You have to add a directory named *model_files* to store the model-related files: <br>
 
 At the end your folder should look like this: 
