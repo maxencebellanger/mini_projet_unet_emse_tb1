@@ -4,26 +4,28 @@ from UNET_data import save_training_data
 from tensorflow import keras
 import numpy as np
 
-model = UNet_lowered((512,512, 1))
 
 save_training_data()
 
 images_train = np.load('../model_files/train_images_array.npy')
 masks_train = np.load('../model_files/train_masks_array.npy')
 
-EPOCHS = 10
-#VAL_DATA = (X_val,y_val)
-BATCH_SIZE = 10
-callbacks=[keras.callbacks.ModelCheckpoint('Unet_XRAY_best.h5.keras',save_best_only=True)]
+def train_unet(model, name):
+    EPOCHS = 5
+    BATCH_SIZE = 5
+    callbacks=[keras.callbacks.ModelCheckpoint('Unet_XRAY_best.h5.keras',save_best_only=True)]
 
 
-model.compile(optimizer = keras.optimizers.Adam(1e-4) , 
-              loss = keras.losses.BinaryCrossentropy(from_logits = False),
-              metrics = ['accuracy'])
+    model.compile(optimizer = keras.optimizers.Adam(1e-4) , 
+                  loss = keras.losses.BinaryCrossentropy(from_logits = False),
+                  metrics = ['accuracy'])
 
-history = model.fit(images_train, masks_train, 
-                    batch_size = BATCH_SIZE,
-                    epochs = EPOCHS , callbacks = callbacks ,
-                    verbose = 1)#, validation_data = VAL_DATA)
+    history = model.fit(images_train, masks_train, 
+                        batch_size = BATCH_SIZE,
+                        epochs = EPOCHS , callbacks = callbacks ,
+                        verbose = 1)
 
-model.save("../model_files/Unet.keras")
+    model.save("../model_files/"+name+".keras")
+
+#train_unet(UNet_lowered((512,512,1)), "Unet_low")
+train_unet(UNet((512,512,1)), "Unet")
