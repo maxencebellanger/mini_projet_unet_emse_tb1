@@ -9,6 +9,8 @@ WIDTH = 512
 train_root  = '../training/'
 test_root   = '../test/test_images/'
 predictions_root = '../test/predicted_masks/'
+enhanced_predictions_root = '../test/enhanced_predicted_masks/'
+
 
 def save_training_data():
   """
@@ -67,6 +69,7 @@ def save_predictions_data():
   nb_predictions = len(predictions_images)
   preidctions_path = os.listdir(predictions_root)
   predictions = np.zeros((nb_predictions,HEIGHT,WIDTH,1))
+  enhanced_predictions = np.zeros((nb_predictions,HEIGHT,WIDTH,1))
 
   for i in range(nb_predictions):
     path = preidctions_path[i]
@@ -74,7 +77,14 @@ def save_predictions_data():
     img = cv2.resize(img, (HEIGHT,WIDTH))
     predictions[i] = img[:,:,1].reshape(512,512,1)
 
+  for i in range(nb_predictions):
+    path = preidctions_path[i]
+    img = cv2.imread(enhanced_predictions_root+path)
+    img = cv2.resize(img, (HEIGHT,WIDTH))
+    enhanced_predictions[i] = img[:,:,1].reshape(512,512,1)
+
   np.save('../model_files/predictions_array.npy',predictions)
+  np.save('../model_files/enhanced_predictions_array.npy',enhanced_predictions)
 
 def save_all_data():
   save_training_data()

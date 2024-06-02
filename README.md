@@ -24,16 +24,19 @@ python -m venv <virtual environment location>
 ### 1.2 - Folder organization 
 Make a directory named : *training* which contains directories named *images* and *masks*. It will contain all the training data.
 
-Make a directory named: *test* which contains directories named *predicted_masks* and *test_images*. <br>
+Make a directory named: *test* which contains directories named *predicted_masks* and *test_images* and *enhanced_predicted_masks*. <br>
 *test_images* will contain two folders named *images* and *masks* like the *training* folder. 
 
-You have to add a directory named *model_files* to store the model-related files: <br>
+You have to add a directory named *model_files* to store the model-related files, a directory named *metrics* 
+to stores the metrics files related (like confusion matrix). <br>
 
 At the end your folder should look like this: 
 ```
+├───metrics
 ├───mini_projet_unet_emse_tb1
 ├───model_files
 ├───test
+│   ├───enhanced_predicted_masks
 │   ├───predicted_masks
 │   └───test_images
 │       ├───images
